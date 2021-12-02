@@ -65,3 +65,17 @@ Primo 0 false
 8-9 = -1.0
 -1.0*5 = -5.0
 0.2+2 = 2.2
+45*5 = 225.0
+225.0-5 = 220.0
+220.0+25 = 245.0
+25+-3 = 22.0
+Binario: 10110 del Decimal: 22.0
+Primo 5 true
+6+3 = 9.0
+Binario: 101 del Decimal: 5
+Avg = 0
+Primo 5 true
+Primo 8 false
+Binario: 110 del Decimal: 6
+6*3 = 18.0
+M+ 18.0 > 18.0 
