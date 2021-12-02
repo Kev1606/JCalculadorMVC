@@ -122,6 +122,7 @@ public class OperationsController implements ActionListener, KeyListener {
         }
         if (e.getSource() == this.vista.btnIgual) {
             if (modelo.isEstaBinario() == true | modelo.isEstaPrimo() == true) {
+                JOptionPane.showMessageDialog(vista, "No puedes trabajar con valores no numericos", "Error",0);
             } else {
                 modelo.setNumero2(vista.txfNumeros.getText());
                 if (modelo.getNumero1() != null | !modelo.getNumero1().equals("")){
@@ -184,14 +185,18 @@ public class OperationsController implements ActionListener, KeyListener {
         }
         if (e.getSource() == this.vista.btnBinario) {
             modelo.setEstaBinario(true);
-            try {           
-                modelo.setNumero1(vista.txfNumeros.getText());
-                Double numero = Double.parseDouble(vista.txfNumeros.getText());
-                int numeroAConvertir = numero.intValue();
-                vista.txfNumeros.setText(Integer.toBinaryString(numeroAConvertir));
-                modelo.setBinarioArchivo(vista.txfNumeros.getText());
-            } catch (NumberFormatException error) {
-                JOptionPane.showMessageDialog(vista, "No se puede ejecutar la conversion a binario","Error de Conversion",0);
+            if (modelo.isEstaPrimo()) {
+                JOptionPane.showMessageDialog(vista, "No se puede calcular, digite un numero","Error",0);
+            } else {
+                try {           
+                    modelo.setNumero1(vista.txfNumeros.getText());
+                    Double numero = Double.parseDouble(vista.txfNumeros.getText());
+                    int numeroAConvertir = numero.intValue();
+                    vista.txfNumeros.setText(Integer.toBinaryString(numeroAConvertir));
+                    modelo.setBinarioArchivo(vista.txfNumeros.getText());
+                } catch (NumberFormatException error) {
+                    JOptionPane.showMessageDialog(vista, "No se puede ejecutar la conversion a binario","Error de Conversion",0);
+                }
             }
         }
         if (e.getSource() == this.vista.btnData) {
